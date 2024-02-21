@@ -16,8 +16,9 @@ body{
     font-family: "Poppins", sans-serif;
     line-height: 1.80857;
     font-weight: normal;
-    background-color: var(--primary-background-color);
+    background-color: white;
     background-image: url("../image/backgrond.png");
+
 }
 .container{
     padding-bottom: 60px;
