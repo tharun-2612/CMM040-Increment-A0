@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- Extarnal css link -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Products</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"
+            ><img src="./image/logo.png" height="50" alt="logo" /> Your mart</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/index.html"
+                >Home</a
+              >
+              <a class="nav-link" href="#product">Products</a>
+              <a class="nav-link" href="#contact">Contact us</a>
+            </div>
+          </div>
+
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+          <a class="nav-link" aria-current="page" href="/login.html">Log in</a>
+        </div>
+      </nav>
+
+      <!-- products -->
+      <section id="product" class="mt-5">
+        <div class="container">
+          <h3>Shoes</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-shoe1.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">BATA</h5>
+                  <p class="card-text">
+                    Bata casual jumper for tracking,hiking.light weight shoe
+                    with fashion touch
+                  </p>
+                  <h6>$130</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-shoe2.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">NIKE</h5>
+                  <p class="card-text">
+                    Nike shoe for sport lover.Nike shoe is the best choice for
+                    Athletics
+                  </p>
+                  <h6>$200</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-shoe3.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">ADIDAS</h5>
+                  <p class="card-text">
+                    Fasion,Comfort,sports adidas is compatable for anything
+                  </p>
+                  <h6>$195</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h3>Backpack</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-back1.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Lapor</h5>
+                  <p class="card-text">
+                    lapor casual backpack for tracking,hiking.light weight
+                    backpack with fashion touch
+                  </p>
+                  <h6>$70</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-back2.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Ambasador</h5>
+                  <p class="card-text">
+                    Fasion,Comfort,sports ambasador is compatable for anything
+                  </p>
+                  <h6>$100</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="./image/p-back3.png" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">North star</h5>
+                  <p class="card-text">
+                    North star for sport lover.North Star is the best choice for
+                    Athletics
+                  </p>
+                  <h6>$95</h6>
+                  <button class="btn buy-now">Buy now >></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" id="contact">
+        <div class="foot-bg d-flex align-items-center justify-content-center">
+          <div class="sub">
+            <h3>Stay in Touch</h3>
+            <p>
+              Please submit your E-mail and get our products information
+              everyday.
+            </p>
+            <input
+              type="Email"
+              name="Email"
+              id="Email"
+              class="form-control"
+              placeholder="E-mail"
+            />
+            <input type="button" class="btn submit" value="Submit" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="d-flex justify-content-center">
+        <p>&copy;Your Mart,All rights reserved</p>
+      </footer>
+    </div>
+
+    <!-- JS bundle for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
