@@ -11,67 +11,95 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
 
     <!-- Extarnal css link -->
     <link rel="stylesheet" href="./css/index.css" />
     <title>Products</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html"
-            ><img src="./image/logo.png" height="50" alt="logo" /> Your mart</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/index.html"
-                >Home</a
-              >
-              <a class="nav-link" href="#product">Products</a>
-              <a class="nav-link" href="#contact">Contact us</a>
-            </div>
-          </div>
-
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
+    <header>
+      <!-- Navigation Bar -->
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html"
+              ><img src="image/Bagsmely.png" height="120" alt="logo" /></a
+            >
+            <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+            defer
+          ></script>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
             </button>
-          </form>
-          <a class="nav-link" aria-current="page" href="/login.html">Log in</a>
-        </div>
-      </nav>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/index.html"
+                  >Home</a
+                >
+                <a class="nav-link" href="/product.html">Products</a>
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Market Place
+                  </a>
+                  <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/product.html">Buy</a></li>
+                  <li><a class="dropdown-item" href="#">Sell</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+                
+                <a class="nav-link" href="#contact">Contact us</a>
+              </div>
+            </div>
 
-      <!-- products -->
-      <section id="product" class="mt-5">
-        <div class="container">
-          <h3>Shoes</h3>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+            <a class="nav-link" aria-current="page" href="/login.html">Log in</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+    
+      <!-- Sample products -->
+      <section id="product">
+        <div class="containerT">
+          <h1>Most Favourited Items</h1>
+        </div>
+        <div class="container-fluid">
+          <h1>Shoes</h1>
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-shoe1.png" class="card-img-top" alt="..." />
+                <img src="./image/p-shoe1.png" class="card-img-top" alt="Shoe Image" />
                 <div class="card-body">
                   <h5 class="card-title">BATA</h5>
                   <p class="card-text">
-                    Bata casual jumper for tracking,hiking.light weight shoe
-                    with fashion touch
+                    Bata casual jumper for tracking,hiking.light weight shoe with
+                    fashion touch
                   </p>
                   <h6>$130</h6>
                   <button class="btn buy-now">Buy now >></button>
@@ -80,7 +108,7 @@
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-shoe2.png" class="card-img-top" alt="..." />
+                <img src="./image/p-shoe2.png" class="card-img-top" alt="Shoe Image" />
                 <div class="card-body">
                   <h5 class="card-title">NIKE</h5>
                   <p class="card-text">
@@ -94,7 +122,7 @@
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-shoe3.png" class="card-img-top" alt="..." />
+                <img src="./image/p-shoe3.png" class="card-img-top" alt="Shoe Image" />
                 <div class="card-body">
                   <h5 class="card-title">ADIDAS</h5>
                   <p class="card-text">
@@ -108,17 +136,16 @@
           </div>
         </div>
 
-        <div class="container">
-          <h3>Backpack</h3>
+        <div class="container-fluid">
+          <h1>Women Bags</h1>
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-back1.png" class="card-img-top" alt="..." />
+                <img src="image/NICOLE & DORIS Women Handbag.png" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title">Lapor</h5>
+                  <h5 class="card-title">NICOLE & DORIS Women Handbag</h5>
                   <p class="card-text">
-                    lapor casual backpack for tracking,hiking.light weight
-                    backpack with fashion touch
+                    Fashion Ladies Handbags & Shoulder Bags Multicolor Top Handle Bag Crossbody Bag with Pompom
                   </p>
                   <h6>$70</h6>
                   <button class="btn buy-now">Buy now >></button>
@@ -127,11 +154,11 @@
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-back2.png" class="card-img-top" alt="..." />
+                <img src="image/Miss Lulu Handbags.png" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title">Ambasador</h5>
+                  <h5 class="card-title">Miss Lulu Handbags</h5>
                   <p class="card-text">
-                    Fasion,Comfort,sports ambasador is compatable for anything
+                    Ladies Fashion Shoulder Bag Girls PU Leather Top Handle Bag
                   </p>
                   <h6>$100</h6>
                   <button class="btn buy-now">Buy now >></button>
@@ -140,12 +167,11 @@
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="./image/p-back3.png" class="card-img-top" alt="..." />
+                <img src="image/Fila Jute Bag.png" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title">North star</h5>
+                  <h5 class="card-title">Fila Jute Bag</h5>
                   <p class="card-text">
-                    North star for sport lover.North Star is the best choice for
-                    Athletics
+                    6 Pcs Handbag Set Hobo Top Handle Bag Totes Satchels Crossbody Shoulder Bags and Purse Clutch
                   </p>
                   <h6>$95</h6>
                   <button class="btn buy-now">Buy now >></button>
@@ -156,30 +182,67 @@
         </div>
       </section>
 
-      <div class="container" id="contact">
-        <div class="foot-bg d-flex align-items-center justify-content-center">
-          <div class="sub">
-            <h3>Stay in Touch</h3>
-            <p>
-              Please submit your E-mail and get our products information
-              everyday.
-            </p>
-            <input
-              type="Email"
-              name="Email"
-              id="Email"
-              class="form-control"
-              placeholder="E-mail"
-            />
-            <input type="button" class="btn submit" value="Submit" />
-          </div>
-        </div>
-      </div>
 
       <!-- Footer -->
-      <footer class="d-flex justify-content-center">
-        <p>&copy;Your Mart,All rights reserved</p>
-      </footer>
+      <footer>
+        <div class="footer">
+           <div class="container">
+              <div class="row">
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <a href="#top-of-page">
+                       <img class="logo1" src="image/Bagsmely.png" alt="Footer Logo"/>
+                    </a>
+                    <ul class="social_icon">
+                       <li><a href="https://www.facebook.com/marketplace/create"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                       <li><a href="https://twitter.com/home?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                       <li><a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                       <li><a href="https://www.instagram.com/?login&hl=en-gb"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                 </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <h3>INFO</h3>
+                    <ul class="about_us">
+                       <li><a href="#">About Us</a></li>
+                       <li><a href="#">FAQs</a></li>
+                       <li><a href="#">Advertise</a></li>
+                       <li><a href="#">Terms and Conditions</a></li>
+                       <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+                       <li><a href="#">Help & Support</a></li>
+                    </ul>
+                 </div>
+  
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <h3>Contact Us</h3>
+                    <ul class="conta">
+                       <li>
+                          <p>RGU, Garthdee</p>
+                       </li>
+                       <li>+92 35565962049</li>
+                       <li>TeamO@gmail.com</li>
+  
+                    </ul>
+                 </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <form class="bottom_form">
+                       <h3>Newsletter</h3>
+                       <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                       <button class="sub_btn">subscribe</button>
+                    </form>
+                 </div>
+              </div>
+           </div>
+           <div class="copyright">
+              <div class="container">
+                 <div class="row">
+                    <div class="col-md-12">
+                       <p>Copyright © 2024 TeamO, Inc. All rights reserved.</a></p>
+                       
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
     </div>
 
     <!-- JS bundle for Bootstrap -->
