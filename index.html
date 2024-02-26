@@ -16,7 +16,7 @@
       <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />``
+    />
     <!-- Extarnal css link -->
     <link rel="stylesheet" href="./css/index.css" />
     <title>TeamO Mart</title>
@@ -28,12 +28,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75">
           <div class="container-fluid">
             <a class="navbar-brand" href="/index.html"
-              ><img src="image/Bagsmely.png" height="120" alt="logo" /></a
-            >
-            <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
-            defer
-          ></script>
+              ><img src="image/Bagsmely.png" height="120" alt="logo" /></a>
+           
             <button
               class="navbar-toggler"
               type="button"
@@ -51,9 +47,17 @@
                   >Home</a
                 >
                 <a class="nav-link" href="/product.html">Products</a>
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Shop
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Market Place
                   </a>
+                  <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/product.html">Buy</a></li>
+                  <li><a class="dropdown-item" href="#">Sell</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
                 <a class="nav-link" href="#contact">Contact us</a>
               </div>
             </div>
