@@ -28,6 +28,13 @@
                 exit();
             }
         }
+        else{
+         
+           echo '<script>
+          window.location.href="index.php";
+          alert("Passwords do not match with confirmation!!");
+          </script>';
+        }
      }
      else{
         // if($count_user>0){
@@ -42,6 +49,8 @@
               alert("Email already exists!!");
             </script>'; 
         }
+       
      }
+     
    }
 ?>
