@@ -14,7 +14,7 @@
   <body>
     <div id="form">
       <h1 id = "heading">SignUp Form<h1><br></h1>
-      <form name ="form" action = "signup.php" method="post">
+      <form name ="form" action = "signup.php" method="post"> <!--Form sends data to signup.php using the POST method -->
         <i class="bi bi-person-circle"></i>
         <input type = "text" id = "user" name ="user" placeholder = "Enter Username" required><br><br>
         <i class="bi bi-envelope-fill"></i>

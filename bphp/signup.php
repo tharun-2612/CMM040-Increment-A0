@@ -24,7 +24,11 @@
             $sql_insert = "INSERT INTO signup(user, email, password) VALUES('$username', '$email', '$hash')";
             $result_insert = mysqli_query($con, $sql_insert);
             if($result_insert){ //if it inserts properly
-                header("Location:welcome.php");
+              echo '<script>
+              window.location.href="index.php";
+              alert("Passwords do not match with confirmation!!");
+              </script>';
+                header("Location:login.php");
                 exit();
             }
         }
