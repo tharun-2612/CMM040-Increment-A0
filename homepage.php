@@ -115,8 +115,8 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
     </header>
     <main>
       <!-- Welcome Message -->
-      <div class="welcomeNote" style="background-image: url('path/to/your/background-image.jpg');">
-        <h1>Welcome <?php if(isset($_SESSION['fname'])): echo htmlspecialchars($_SESSION['fname']) . " "; endif; ?>to TeamO Mart</h1>
+      <div class="welcomeNote" style="background-image: url(image/backgrond.png');">
+        <h1>Welcome <?php if(isset($_SESSION['fname'])): echo($_SESSION['fname']) . " "; endif; ?>to TeamO Mart</h1>
         <p>Explore the best products and services handpicked for you.</p>
         <a href="#product" class="ExploreBut">Explore Now</a>
       </div>
