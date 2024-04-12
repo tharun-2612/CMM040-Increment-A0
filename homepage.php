@@ -221,105 +221,40 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
       </div>
      
 
-      <!-- Sample Products -->
-      <section id="product">
+     <!-- Sample Products -->
+     <section id="product">
         <div class="containerT">
-          <h1>Most Favourited Items</h1>
+            <h1>Most Favourited Items</h1>
         </div>
         <div class="container-fluid">
-          <h1>Shoes</h1>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card h-100">
-                <img src="./image/p-shoe1.png" class="card-img-top" alt="Shoe Image" />
-                <div class="card-body">
-                  <h5 class="card-title">BATA</h5>
-                  <p class="card-text">
-                    Bata casual jumper for tracking,hiking.light weight shoe with
-                    fashion touch
-                  </p>
-                  <h6>£130</h6>
-                  <button class="btn buy-now">Buy now >></button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="./image/p-shoe2.png" class="card-img-top" alt="Shoe Image" />
-                <div class="card-body">
-                  <h5 class="card-title">NIKE</h5>
-                  <p class="card-text">
-                    Nike shoe for sport lover.Nike shoe is the best choice for
-                    Athletics
-                  </p>
-                  <h6>£200</h6>
-                  <button class="btn buy-now">Buy now >></button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="./image/p-shoe3.png" class="card-img-top" alt="Shoe Image" />
-                <div class="card-body">
-                  <h5 class="card-title">ADIDAS</h5>
-                  <p class="card-text">
-                    Fasion,Comfort,sports adidas is compatable for anything
-                  </p>
-                  <h6>£195</h6>
-                  <button class="btn buy-now">Buy now >></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <?php
+            include 'connection.php';
 
-        <div class="container-fluid">
-          <h1>Women Bags</h1>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card h-100">
-                <img src="image/NICOLE & DORIS Women Handbag.png" class="card-img-top" alt="bags" />
-                <div class="card-body">
-                  <h5 class="card-title">NICOLE & DORIS Women Handbag</h5>
-                  <p class="card-text">
-                    Fashion Ladies Handbags & Shoulder Bags Multicolor Top Handle Bag Crossbody Bag with Pompom
-                  </p>
-                  <h6>£70</h6>
-                  <button class="btn buy-now">Buy now >></button>
+            $categoriesQuery = $conn->query("SELECT DISTINCT category FROM productsservices");
+            while ($category = $categoriesQuery->fetch(PDO::FETCH_ASSOC)): ?>
+                <h2 class="section-title category-title"><?php echo htmlspecialchars($category['category']); ?></h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <?php
+                    $itemsQuery = $conn->prepare("SELECT * FROM productsservices WHERE category = ?");
+                    $itemsQuery->execute([$category['category']]);
+                    while ($item = $itemsQuery->fetch(PDO::FETCH_ASSOC)): ?>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="<?php echo htmlspecialchars($item['imagePath']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($item['itemName']); ?>" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo htmlspecialchars($item['itemName']); ?></h5>
+                                    <p class="card-text"><?php echo htmlspecialchars($item['description']); ?></p>
+                                    <h6>£<?php echo htmlspecialchars($item['price']); ?></h6>
+                                    <button class="btn buy-now">Buy now >></button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="image/Miss Lulu Handbags.png" class="card-img-top" alt="bags" />
-                <div class="card-body">
-                  <h5 class="card-title">Miss Lulu Handbags</h5>
-                  <p class="card-text">
-                    Ladies Fashion Shoulder Bag Girls PU Leather Top Handle Bag
-                  </p>
-                  <h6>£100</h6>
-                  <button class="btn buy-now">Buy now >></button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="image/Fila Jute Bag.png" class="card-img-top" alt="bag" />
-                <div class="card-body">
-                  <h5 class="card-title">Fila Jute Bag</h5>
-                  <p class="card-text">
-                    6 Pcs Handbag Set Hobo Top Handle Bag Totes Satchels Crossbody Shoulder Bags and Purse Clutch
-                  </p>
-                  <h6>£95</h6>
-                  <button class="btn buy-now">Buy now >></button>
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php endwhile; ?>
         </div>
-      </section>
-    </main>
-
+    </section>
+</main>
     <!-- footer -->
     <footer>
       <div class="footer">
