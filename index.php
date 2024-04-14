@@ -26,11 +26,11 @@
   <body class = "indexpage">
     <header>
       <!-- Navigation Bar -->
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75 transparent-navbar">
             <div class="container-fluid">
               <a class="navbar-brand" href="/index.php"
-                ><img src="image/Bagsmely.png" height="120" alt="logo" /></a>
+                ><img src="image/Bagsmely.png" height="70" alt="logo" /></a>
                   <a class="nav-link" href="#contact">Contact us</a>
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <div class="row">
                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                   <a href="#top-of-page">
-                     <img class="logo1" src="image/Bagsmely.png" alt="Footer Logo"/>
+                     <img class="logo1" src="image/Bagsmely.png" height="70" alt="Footer Logo"/>
                   </a>
                   <ul class="social_icon">
                      <li><a href="https://www.facebook.com/marketplace/create"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

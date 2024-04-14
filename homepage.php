@@ -26,11 +26,11 @@
   <body class= "homepage">
     <header>
       <!-- Navigation Bar -->
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75">
           <div class="container-fluid">
             <a class="navbar-brand" href="/index.php"
-              ><img src="image/Bagsmely.png" height="120" alt="logo" /></a>
+              ><img src="image/Bagsmely.png" height="80" alt="logo" /></a>
            
             <button
               class="navbar-toggler"
@@ -45,7 +45,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a
+                <a class="nav-link active" aria-current="page" href="homepage.php">Home</a
                 >
                 
                 <div class="navbar-nav">
@@ -55,58 +55,15 @@
                  
                 </div>
                 <a class="nav-link" href="#contact">Contact us</a>
+                <!-- Cart Symbol Link -->
+                <a href="cart.php" class="nav-link">
+                    <i class="fa fa-shopping-cart"></i> 
+                </a>
               </div>
             </div>
-            <form id= "categoryForm" class="d-flex" action="#" method="GET" onsubmit="redirectToSubcategoryPage(); return false;">
-  <select class="form-select me-2" name="category" id="categorySelect" onchange="updateSubcategories()">
-    <option selected>Choose category...</option>
-    <option value="products">Products</option>
-    <option value="services">Services</option>
-  </select>
 
-  <select class="form-select me-2" name="subcategory" id="subcategorySelect">
-    <option selected>Choose sub-category...</option>
+
    
-  </select>
-
-  <button class="btn btn-outline-success" type="submit">Go</button>
-</form>
-   <script>
-function updateSubcategories() {
-  var category = document.getElementById("categorySelect").value;
-  var subcategorySelect = document.getElementById("subcategorySelect");
-
-  subcategorySelect.innerHTML = ''; 
-
-  if (category === "products") {
-    var subcategories = ["Clothing", "Automobile", "Electronics", "Household"];
-  } else if (category === "services") {
-    var subcategories = ["Beauty Services", "Tutoring Services"];
-  }
-
-
-  subcategories.forEach(function(subcategory) {
-    var option = new Option(subcategory, subcategory.toLowerCase().replace(/\s+/g, '_'));
-    subcategorySelect.add(option);
-  });
-}
-
-function redirectToSubcategoryPage(event) {
-  event.preventDefault(); 
-
-  var categorySelect = document.getElementById("categorySelect");
-  var category = categorySelect.value;
-  var subcategorySelect = document.getElementById("subcategorySelect");
-  var subcategory = subcategorySelect.value;
-
-  
-  var pageUrl = (category === "products" ? 'product.html' : 'service.html') + '#' + subcategory;
-  window.location.href = pageUrl;
-}
-
-
-document.getElementById("categoryForm").addEventListener("submit", redirectToSubcategoryPage);
-</script>
           
 <a href="logout.php" class="btn btn-danger">Logout</a>
           </div>
@@ -115,7 +72,7 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
     </header>
     <main>
       <!-- Welcome Message -->
-      <div class="welcomeNote" style="background-image: url(image/backgrond.png');">
+      <div class="welcomeNote p-2"> 
         <h1>Welcome <?php if(isset($_SESSION['fname'])): echo($_SESSION['fname']) . " "; endif; ?>to TeamO Mart</h1>
         <p>Explore the best products and services handpicked for you.</p>
         <a href="#product" class="ExploreBut">Explore Now</a>
@@ -160,8 +117,8 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
                   <button class="btn buy-now">Buy now</button>
                 </div>
                 <div class="col-md-5 d-flex justify-content-center">
-                  <img src="image/salon.png"  alt="Salon service Image"/>
-                  <img src="image/Barbing.png" alt="Salon service Image"/>
+                <img src="image/salon.png" class="d-block carousel-img" alt="Salon service Image"/>
+                  <img src="image/Barbing.png" class="d-block carousel-img" alt="Salon service Image"/>
                   
                 </div>
               </div>
@@ -178,8 +135,8 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
                   <button class="btn buy-now">Buy now</button>
                 </div>
                 <div class="col-md-5 d-flex justify-content-center">
-                  <img src="image/clothing 2.png" class="d-block" alt="Clothing" />
-                  <img src="image/suitcase.png" class="d-block" alt="Clothing" />
+                  <img src="image/clothing 2.png" class="d-block carousel-img" alt="Clothing" />
+                  <img src="image/suitcase.png" class="d-block carousel-img" alt="Clothing" />
                 </div>
               </div>
             </div>
@@ -193,8 +150,8 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
                   <button class="btn buy-now">Buy now</button>
                 </div>
                 <div class="col-md-5 d-flex justify-content-center">
-                  <img src="image/Household Appliances.png" class="d-block" alt="Household" />
-                  <img src="image/Home appliances.png" class="d-block" alt="Household" />
+                  <img src="image/Household Appliances.png" class="d-block carousel-img" alt="Household" />
+                  <img src="image/Home appliances.png" class="d-block carousel-img" alt="Household" />
                 </div>
               </div>
             </div>
@@ -223,37 +180,53 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
 
      <!-- Sample Products -->
      <section id="product">
-        <div class="containerT">
-            <h1>Most Favourited Items</h1>
-        </div>
-        <div class="container-fluid">
-            <?php
-            include 'connection.php';
+    <div class="container-fluid">
+        <form id="categoryForm" class="d-flex" action="search_result.php" method="GET">
+            <select class="form-select me-2" name="category" id="categorySelect" onchange="updateSubcategories()">
+                <option selected>Choose category...</option>
+                <option value="products">Products</option>
+                <option value="services">Services</option>
+            </select>
 
-            $categoriesQuery = $conn->query("SELECT DISTINCT category FROM productsservices");
-            while ($category = $categoriesQuery->fetch(PDO::FETCH_ASSOC)): ?>
-                <h2 class="section-title category-title"><?php echo htmlspecialchars($category['category']); ?></h2>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <?php
-                    $itemsQuery = $conn->prepare("SELECT * FROM productsservices WHERE category = ?");
-                    $itemsQuery->execute([$category['category']]);
-                    while ($item = $itemsQuery->fetch(PDO::FETCH_ASSOC)): ?>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="<?php echo htmlspecialchars($item['imagePath']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($item['itemName']); ?>" />
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo htmlspecialchars($item['itemName']); ?></h5>
-                                    <p class="card-text"><?php echo htmlspecialchars($item['description']); ?></p>
-                                    <h6>£<?php echo htmlspecialchars($item['price']); ?></h6>
-                                    <button class="btn buy-now">Buy now >></button>
-                                </div>
+            <select class="form-select me-2" name="subcategory" id="subcategorySelect">
+                <option selected>Choose sub-category...</option>
+            </select>
+
+            <input class="form-control me-2" type="search" placeholder="Search items..." aria-label="Search" id="searchInput" name="search">
+
+            <button class="btn btn-outline-success" type="submit">Go</button>
+        </form>
+    </div>
+    <div class="containerT">
+        <h1>Most Favorited Items</h1>
+    </div>
+    <div class="container-fluid">
+    <?php
+        include 'connection.php';
+        $categoriesQuery = $conn->query("SELECT DISTINCT category FROM productsservices");
+        while ($category = $categoriesQuery->fetch(PDO::FETCH_ASSOC)): ?>
+            <h2 class="section-title category-title"><?php echo htmlspecialchars($category['category']); ?></h2>
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                <?php
+                $itemsQuery = $conn->prepare("SELECT * FROM productsservices WHERE category = ?");
+                $itemsQuery->execute([$category['category']]);
+                while ($item = $itemsQuery->fetch(PDO::FETCH_ASSOC)): ?>
+                    <div class="col item">
+                        <div class="card h-100">
+                            <img src="<?php echo htmlspecialchars($item['imagePath']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($item['itemName']); ?>" />
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo htmlspecialchars($item['itemName']); ?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($item['description']); ?></p>
+                                <h6>£<?php echo htmlspecialchars($item['price']); ?></h6>
+                                <a href="product_details.php?id=<?php echo $item['id']; ?>" class="btn btn-primary">View Details</a>
                             </div>
                         </div>
-                    <?php endwhile; ?>
-                </div>
-            <?php endwhile; ?>
-        </div>
-    </section>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php endwhile; ?>
+    </div>
+</section>
 </main>
     <!-- footer -->
     <footer>
@@ -315,6 +288,7 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
          </div>
       </div>
    </footer>
+   
 
     <!-- JS bundle for Bootstrap -->
     <script
@@ -327,7 +301,60 @@ document.getElementById("categoryForm").addEventListener("submit", redirectToSub
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-   
-  </body>
-  
+   <!-- JS bundle for Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script>
+  function updateSubcategories() {
+    var category = document.getElementById("categorySelect").value;
+    var subcategorySelect = document.getElementById("subcategorySelect");
+
+    subcategorySelect.innerHTML = '';
+
+    if (category === "products") {
+      var subcategories = ["Clothing", "Automobile", "Electronics", "Household"];
+    } else if (category === "services") {
+      var subcategories = ["Beauty Services", "Tutoring Services"];
+    }
+
+    subcategories.forEach(function(subcategory) {
+      var option = new Option(subcategory, subcategory.toLowerCase().replace(/\s+/g, '_'));
+      subcategorySelect.add(option);
+    });
+  }
+
+  function redirectToSubcategoryPage(event) {
+    event.preventDefault();
+
+    var categorySelect = document.getElementById("categorySelect");
+    var category = categorySelect.value;
+    var subcategorySelect = document.getElementById("subcategorySelect");
+    var subcategory = subcategorySelect.value;
+
+    var pageUrl = (category === "products" ? 'search_result.php' : 'search_result.php') + '?category=' + category + '&subcategory=' + subcategory;
+    window.location.href = pageUrl;
+  }
+
+  // Function to filter items based on search input
+  function filterItems() {
+    var searchInput = document.getElementById("searchInput").value.toLowerCase();
+    var items = document.querySelectorAll(".item");
+    
+    items.forEach(function(item) {
+      var itemName = item.querySelector(".card-title").textContent.toLowerCase();
+      if (itemName.includes(searchInput)) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+
+  document.getElementById("categoryForm").addEventListener("submit", redirectToSubcategoryPage);
+
+  // To listen for input in the search bar and filter items accordingly
+  document.getElementById("searchInput").addEventListener("input", filterItems);
+</script>
+</body>
 </html>
+

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark opacity-75">
           <div class="container-fluid">
             <a class="navbar-brand" href="/index.php"
-              ><img src="image/Bagsmely.png" height="120" alt="logo" /></a>
+              ><img src="image/Bagsmely.png" height="70" alt="logo" /></a>
            
             <button
               class="navbar-toggler"

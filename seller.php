@@ -1,9 +1,9 @@
 <?php
-// Start the session
+
 session_start();
 include 'connection.php';
 
-// Fetching Unique Categories
+// To fetch Unique Categories
 $categories = $conn->query("SELECT DISTINCT category FROM productsservices");
 ?>
 
@@ -16,13 +16,19 @@ $categories = $conn->query("SELECT DISTINCT category FROM productsservices");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/index.css" rel="stylesheet">
+    <style>
+      .col-md-4 {
+            flex: 0 0 20%; 
+            max-width: 20%; 
+        }  
+    </style>
 </head>
 <!-- Begining of Body -->
 <body class="homepage">
     <header>
         <?php include 'navbar.php'; ?>
     </header>
-    <main class="container mt-4">
+    <main class="container-fluid mt-4 ">
         <?php while($category = $categories->fetch(PDO::FETCH_ASSOC)): ?>
             <section>
                 <h2 class="section-title category-title"><?php echo htmlspecialchars($category['category']); ?></h2>

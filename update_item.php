@@ -20,41 +20,44 @@
         if(isset($_GET['id']) && !empty(trim($_GET['id']))){
             $id = trim($_GET['id']);
 
-            // php code for fetching item data
+            // To fetch item data
             $stmt = $conn->prepare("SELECT * FROM productsservices WHERE id = ?");
             $stmt->execute([$id]);
             $item = $stmt->fetch();
             
             if($item){
-                if ($item) {
-                    // Display the update form with item data
-                    echo "<div class='container mt-5'>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-md-8 offset-md-2'>";
-                    echo "<div class='card'>";
-                    echo "<div class='card-header'>";
-                    echo "<h2 class='text-center'>Update Item</h2>";
-                    echo "</div>";
-                    echo "<div class='card-body'>";
-                    echo "<form action='update_item_handler.php' method='post' enctype='multipart/form-data'>";
-                    echo "<input type='hidden' name='id' value='" . htmlspecialchars($item['id']) . "' />";
-                    echo "<div class='mb-3'><label>Item Name:</label><input type='text' name='itemName' value='" . htmlspecialchars($item['itemName']) . "' class='form-control'></div>";
-                    echo "<div class='mb-3'><label>Description:</label><textarea name='description' class='form-control'>" . htmlspecialchars($item['description']) . "</textarea></div>";
-                    echo "<div class='mb-3'><label>Price:</label><input type='text' name='price' value='" . htmlspecialchars($item['price']) . "' class='form-control'></div>";
-                    echo "<div class='mb-3'><label>Item Image:</label><input type='file' name='itemImage' class='form-control'></div>";
-                    echo "<button type='submit' class='btn btn-primary'>Update Item</button>";
-                    echo "</form>";
-                    } else {
-                        // error handling
-                        echo "<p>Item not found. <a href='seller.php'>Return to dashboard</a></p>";
-                    }
-                    } else {
-                    // error handling
-                    header("Location: seller.php?error=Item not found");
-                    exit();
-                    }
-        
-                }
+                // To display the update form with item data
+                echo "<div class='container mt-5'>";
+                echo "<div class='row'>";
+                echo "<div class='col-md-8 offset-md-2'>";
+                echo "<div class='card'>";
+                echo "<div class='card-header'>";
+                echo "<h2 class='text-center'>Update Item</h2>";
+                echo "</div>";
+                echo "<div class='card-body'>";
+                echo "<form action='update_item_handler.php' method='post' enctype='multipart/form-data'>";
+                echo "<input type='hidden' name='id' value='" . htmlspecialchars($item['id']) . "' />";
+                echo "<div class='mb-3'><label>Item Name:</label><input type='text' name='itemName' value='" . htmlspecialchars($item['itemName']) . "' class='form-control'></div>";
+                echo "<div class='mb-3'><label>Description:</label><textarea name='description' class='form-control'>" . htmlspecialchars($item['description']) . "</textarea></div>";
+                echo "<div class='mb-3'><label>Price:</label><input type='text' name='price' value='" . htmlspecialchars($item['price']) . "' class='form-control'></div>";
+                echo "<div class='mb-3'><label>Item Image:</label><input type='file' name='itemImage' class='form-control'></div>";
+                echo "<input type='hidden' name='existingImagePath' value='" . htmlspecialchars($item['imagePath']) . "'>";
+                echo "<button type='submit' class='btn btn-primary'>Update Item</button>";
+                echo "</form>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+            } else {
+                
+                echo "<p>Item not found. <a href='seller.php'>Return to dashboard</a></p>";
+            }
+        } else {
+            
+            header("Location: seller.php?error=Item not found");
+            exit();
+        }
         ?>
     </main>
     <footer>

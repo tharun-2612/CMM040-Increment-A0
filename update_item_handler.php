@@ -1,10 +1,10 @@
 
 <?php
-//Session start and database connection
+
 session_start();
 require_once 'connection.php';
 
-// Confirming form submissions 
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = htmlspecialchars($_POST['id']);
     $itemName = htmlspecialchars($_POST['itemName']);
@@ -20,16 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
         if (in_array($fileType, $allowTypes)) {
-            // Upload file to server
+           
             if (move_uploaded_file($_FILES["itemImage"]["tmp_name"], $targetFilePath)) {
-                // File upload success and imagePath Update
+                
                 $imagePath = $targetFilePath;
             } else {
+                
+                header("Location: seller.php?error=Failed to upload image");
+                exit();
             }
+        } else {
+            
+            header("Location: seller.php?error=Only JPG, JPEG, PNG, & GIF files are allowed");
+            exit();
         }
     }
 
-    // Updating database table
+    // To Update database table
     $sql = "UPDATE productsservices SET itemName = ?, description = ?, price = ?, imagePath = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
 

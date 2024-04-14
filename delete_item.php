@@ -5,7 +5,7 @@ require_once "connection.php";
 if(isset($_GET['id']) && !empty(trim($_GET['id']))){
     $id = trim($_GET['id']);
 
-    // Delete statement
+    // To delete statement
     $stmt = $conn->prepare("DELETE FROM productsservices WHERE id = ?");
     
     if($stmt->execute([$id])){

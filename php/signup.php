@@ -30,7 +30,7 @@ if (empty($fname)) {
     header("Location: ../index.php?error=$error&$data");
     exit;
 } else {
-    // Check if email already exists
+    // To check if email already exists
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$email]);
@@ -38,7 +38,7 @@ if (empty($fname)) {
         $error = "Email already exists";
         header("Location: ../index.php?error=$error&$data");
         exit;
-    } // Check if username already exists
+    } // To check if username already exists
     $sql = "SELECT * FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$uname]);

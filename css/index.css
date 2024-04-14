@@ -18,8 +18,8 @@ body.homepage{
   
     line-height: 1.80857;
     font-weight: normal;
-    background-color: white;
-    background-image: url("../image/tgrf.png");
+    background-color: #3B9AF8;
+   ;
 }
 
 body.indexpage{
@@ -36,10 +36,9 @@ body.Uploadpage{
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
-
   line-height: 1.80857;
   font-weight: normal;
-  background-color:#121758;
+  background-color: #3B9AF8;
 
 
 }
@@ -53,12 +52,19 @@ body.loginpage{
   
 
 }
+main.cart{
+  margin-bottom: 500px;
+}
+
+main.product{
+  margin-bottom: 110px;
+}
 
 main.indexpage{
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
-
+  margin-bottom: 160px;
   line-height: 1.80857;
   font-weight: normal;
  
@@ -102,7 +108,6 @@ nav a{
 
 .navbar{  
   
-  margin: 20px 20px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);    
   
     
@@ -116,11 +121,12 @@ nav a{
   padding: 100px 20px;
   position: relative;
   overflow: hidden;
+  bottom: 10px;
 }
 
 .welcomeNote h1 {
-  font-size: 2.5rem; 
-  margin-bottom: 20px;
+  font-size: 1.8rem; 
+  margin-bottom: 5px;
 }
 
 .welcomeNote p {
@@ -177,20 +183,37 @@ form .shadow {background-color: #111111;
 }
 .carousel-inner{
     padding: 10px 40px;
+    margin-bottom: 20px;
   
 }
 .col-md-5 img {
   width:100%
 }
 
-.carousel-inner>.col-md-5> img, .carousel-inner>.col-md-5>a>img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  line-height: 1;
-  margin:auto;
+
+.carousel-inner>.carousel-item>.row>.col-md-5>a>img {
   width: 100%; 
-  }
+  max-width: 100%; 
+  height: auto; 
+}
+
+.carousel-item {
+  height: 300px; 
+}
+
+.carousel-inner > .carousel-item > .row > .col-md-7 {
+  height: 100%; 
+}
+
+.carousel-inner > .carousel-item > .row > .col-md-5 {
+  height: 100%; 
+}
+
+.carousel-inner > .carousel-item > .row > .col-md-5 > img {
+  height: 100%; 
+}
+
+
 .pricing{
     color: #333930;
     font-weight: bolder;
@@ -220,7 +243,6 @@ form .shadow {background-color: #111111;
   color:#8BA5D9;
   opacity: 0.6;
 }
-
 
 .cat1.position-relative {
   position: relative;
@@ -319,7 +341,7 @@ form .shadow {background-color: #111111;
     text-align: center;
     opacity: 0.7; 
     margin-top: 10px;
-    padding-top: 50px;
+    padding-top: 20px;
     
   }
   
@@ -436,68 +458,28 @@ body, html {
 }
 
 
-.section-title {
-  font-size: 28px;
-  color: #007bff;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-}
-
-.card {
-  border: none;
-  overflow: hidden;
-  border-radius:  0.5rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  
-}
-
-.cardindex{
-  border: none;
-  overflow: hidden;
-  border-radius:  0.5rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  max-width: 50%;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.cardindex:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.card-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.card-price {
-  font-size: 18px;
-  color: #007bff;
-}
 
 
 .btn-primary, .btn-danger {
-  background-color: #007bff;
-    border-color: #007bff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 5px;
 }
-
-.btn-primary:hover, .btn-danger:hover {
-  opacity: 0.8;
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
 }
 
 .upload-info {
@@ -513,25 +495,79 @@ body, html {
 }
 
 
+.upload-item-btn {
+    margin-top: 30px;
+}
+
+.upload-item-btn .btn-primary {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+
 @media (max-width: 768px) {
   .card-img-top {
     height: 150px;
+    
   }
 
 }
+
+.card {
+  border: none;
+  overflow: hidden;
+  border-radius:  0.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background-color: #fff;
+  
+}
+
+.cardindex{
+  border: none;
+  overflow: hidden;
+  border-radius:  0.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  max-width: 50%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.cardindex:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
   .card-bodyin {
     padding: 15px;
     background-color: #90EE90;
   
   }
 
+  .card-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
   .card-body {
     padding: 15px;
     background-color:white;
   }
 
-  .section-title {
-    font-size: 24px;
+  .card-price {
+   font-size: 16px;
+    color: #28a745;
+    margin-bottom: 10px;
   }
 
   .card-title, .card-price {
@@ -596,9 +632,6 @@ body, html {
   color: #000; /* Label color for better readability */
 }
 
-.form-group{
-  
-}
 .signup-intro h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -620,4 +653,53 @@ body, html {
   font-family: 'Dosis', sans-serif;
   color: white; /* Bootstrap success green, adjust as needed */
   font-weight: 600;
+}
+/* Style for the search form */
+#categoryForm {
+    margin-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#categoryForm .form-select {
+  width: 150px;
+  flex: 1 1 auto;
+}
+
+#categoryForm .form-control {
+  width: calc(100% - 170px);
+}
+
+#categoryForm button {
+  margin-left: 10px;
+  background-color: #28a745; /* Change button color to green */
+  border-color: #28a745;
+}
+/* Adjustments for the Most Favorited Items heading */
+#product > .containerT {
+  margin-top: 0; /* Adjust margin to reduce space */
+  margin-left: auto; /* Move to the right */
+  padding: 0 20px; /* Add padding to match other sections */
+  color: #28a745;
+}
+
+#product > .containerT > h1 {
+    font-size: 1.5rem;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding-left: 20px;
+}
+.section-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+.subcategory-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #555;
 }

@@ -5,16 +5,16 @@ session_start();
 // Include database connection
 include "./connection.php";
 
-// Uising th e GET command,fetch the category and subcategory 
+
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 $subcategory = isset($_GET['subcategory']) ? $_GET['subcategory'] : '';
 
-// Fetch items from the database based on the category and subcategory
+// To fetch items from the database based on the category and subcategory
 $sql = "SELECT * FROM productsservices WHERE category = ? AND subcategory = ?";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$category, $subcategory]);
 
-// Fetch all matching rows
+// To fetch all matching rows
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if($results) {
